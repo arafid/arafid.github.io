@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arafid.github.io/sitemap.xml
