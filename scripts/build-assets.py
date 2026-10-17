@@ -42,7 +42,7 @@ def item(title, context, bullets):
 
 story.append(para('AFNAN RAFID', name))
 story.append(para('Analytics | Business Technology | Technology Risk', sub))
-story.append(para('Norman, OK | <a href="mailto:arafid@ou.edu">arafid@ou.edu</a> | <a href="https://www.linkedin.com/in/arafid/">linkedin.com/in/arafid</a> | <a href="https://github.com/arafid">github.com/arafid</a>', small))
+story.append(para('Norman, OK | <a href="mailto:arafid@ou.edu">arafid@ou.edu</a> | <a href="https://arafid.github.io/">arafid.github.io</a> | <a href="https://www.linkedin.com/in/arafid/">linkedin.com/in/arafid</a> | <a href="https://github.com/arafid">github.com/arafid</a>', small))
 
 section('Education')
 story.append(para('<b>University of Oklahoma, Michael F. Price College of Business</b>'))
