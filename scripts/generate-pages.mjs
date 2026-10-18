@@ -9,6 +9,10 @@ const origin = 'https://arafid.github.io';
 const personId = `${origin}/#afnan-rafid`;
 const websiteId = `${origin}/#website`;
 const modified = '2026-10-17';
+// Use timezone-qualified DateTime values for Google's ProfilePage properties.
+// Keep creation fixed; update modification only when the profile content changes.
+const profileCreatedAt = '2026-10-17T12:07:02Z';
+const profileModifiedAt = profileCreatedAt;
 const projectDescriptions = {
   loves: 'Afnan Rafid’s Python customer analytics case study: five datasets, campaign KPIs, customer segmentation, and evidence for behavior-based targeting.',
   amazon: 'Afnan Rafid’s Python NLP project: NLTK VADER, a balanced 300-review sample, complaint themes, and evaluation of sentiment-model limitations.',
@@ -60,7 +64,7 @@ const homeSchema = {'@context':'https://schema.org', '@graph': [
   person,
   {'@type':'WebSite', '@id':websiteId, name:'Afnan Rafid', url:`${origin}/`, inLanguage:'en-US', publisher:{'@id':personId}},
   {'@type':'ProfilePage', '@id':`${origin}/#webpage`, url:`${origin}/`, name:title, description,
-    dateCreated:modified, dateModified:modified, mainEntity:{'@id':personId}, isPartOf:{'@id':websiteId}, inLanguage:'en-US'}
+    dateCreated:profileCreatedAt, dateModified:profileModifiedAt, mainEntity:{'@id':personId}, isPartOf:{'@id':websiteId}, inLanguage:'en-US'}
 ]};
 let home = readFileSync(path.join(dist, 'index.html'), 'utf8');
 home = home.replace(/<title>[\s\S]*?(?=<link rel="icon")/, metadata({title, description, url:`${origin}/`, schema:homeSchema}));
