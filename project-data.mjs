@@ -78,60 +78,40 @@ export const projects = {
     note: 'Historical academic analysis based on publicly available information and course strategy frameworks. This project is not affiliated with or endorsed by PayPal.',
     repo: 'https://github.com/arafid/PayPal-Strategic-Analysis',
     supporting: ['Executive case study', 'https://github.com/arafid/PayPal-Strategic-Analysis/blob/main/docs/PayPal_Strategic_Case_Study.md']
+  },
+  economics: {
+    path: '/projects/dhaka-rickshaw-economic-impact/',
+    title: 'Dhaka Rickshaw Economic Impact Study',
+    category: 'PRIMARY RESEARCH / ECONOMICS / DATA ANALYSIS',
+    intro: 'A field study built from interviews with 90 rickshaw pullers across three areas of Dhaka, examining how COVID-19 affected income, expenses, health, and day-to-day livelihoods.',
+    tags: ['Primary research', 'Survey design', 'Regression analysis', 'Data analysis', 'Economics'],
+    stats: [['90', 'INTERVIEWS'], ['3', 'DHAKA AREAS'], ['6 mo.', 'INCOME / EXPENSE SERIES']],
+    sections: [
+      ['THE FIELD STUDY', '<p>Interviewed 90 rickshaw pullers—30 each in Dhanmondi, Malibagh, and Mirpur—using a questionnaire covering work patterns, income, expenses, health, COVID-19 awareness, PPE, borrowing, and perceived changes during the pandemic.</p>'],
+      ['THE QUANTITATIVE WORK', '<p>Summarized before/after income and expense ranges and built a six-month series from October 2020 through March 2021. The original paper used a linear regression of monthly expenses on monthly income and reported R² ≈ 0.98 with the fitted equation Expenses = 0.71 × Income − 795.867.</p>'],
+      ['WHAT THE EVIDENCE SUGGESTED', '<p>The interviewed workers reported lower income and lower spending during the pandemic, alongside health and financial strain. The paper connected those patterns to reduced passenger demand, informal-sector vulnerability, and poverty-trap dynamics.</p>'],
+      ['WHAT I WOULD QUALIFY TODAY', '<p>The financial figures were self-reported estimates, the sample came from three high-rickshaw-activity areas rather than a probability sample, and the regression used only six monthly aggregate observations. The high R² is therefore descriptive—not evidence of causal or predictive validity.</p>']
+    ],
+    note: 'Historical IB Economics Extended Essay, presented retrospectively. The original paper and results are preserved; accompanying documentation adds current context around sampling, self-reported values, regression scope, and other limitations.',
+    repo: 'https://github.com/arafid/Dhaka-Rickshaw-Economic-Impact-Research',
+    supporting: ['Methodology & limitations', 'https://github.com/arafid/Dhaka-Rickshaw-Economic-Impact-Research/blob/main/docs/methodology-and-limitations.md']
+  },
+  math: {
+    path: "/projects/aggregate-indicators/",
+    title: "The Lies of Aggregate Indicators",
+    category: "INDEPENDENT QUANTITATIVE RESEARCH · IB MATHEMATICS AI HL",
+    intro: "What does an economic headline leave out? An independent mathematics investigation into U.S. household income distributions, model fit, and the limits of summarizing a population with one number.",
+    tags: ["GeoGebra", "Excel", "Regression", "Probability", "Model evaluation"],
+    stats: [["3", "YEARS EXAMINED"], ["16", "PAGES IN ORIGINAL PAPER"], ["1967–2019", "SELECTED-YEAR COVERAGE"]],
+    sections: [
+      ["THE QUESTION", "<p>I examined household income distributions for 1967, 1990, and 2019 to explore what aggregate indicators can obscure. The aim was to connect an economic question with mathematical modeling, while making the assumptions visible.</p>"],
+      ["BEHIND THE AVERAGE", "<figure class=\"research-figure\"><img src=\"/assets/research/income-brackets.svg\" alt=\"Grouped bars comparing household percentages in seven selected income brackets for 1967, 1990, and 2019.\" width=\"900\" height=\"570\" loading=\"lazy\"><figcaption>New chart transcribed from Appendix A of the original paper. Selected brackets only; upper-income bands are omitted. The dollar basis must be verified before drawing real-income trends across years.</figcaption></figure>"],
+      ["THE MODELING WORK", "<p>Used histogram-based descriptions, polynomial regression, residual error, and R² to examine fit. Compared an exponential tail with a quadratic lower-range approximation in a piecewise model. GeoGebra supported the regression work; the paper also referenced Excel error calculations.</p>"],
+      ["WHAT I TOOK FROM IT", "<p>A strong overall fit can still miss the part of a distribution that matters. The piecewise approach offered a more interpretable local description, but its cutoff and normalization remained limitations. The useful habit is to examine errors and assumptions before trusting a tidy curve.</p>"],
+      ["WHY IT MATTERS NOW", "<p>The same question applies to business analytics: which customers, outcomes, or risks disappear when we report only an average? This early project shows the quantitative curiosity behind my later analytics work.</p>"]
+    ],
+    note: "Historical independent IB investigation, presented retrospectively. Grouped household data are not individual observations; unequal bracket widths require care. The original models were exploratory, not validated predictive models. This case study does not claim that GDP alone proves changes in poverty or purchasing power.",
+    repo: "https://github.com/arafid/Aggregate-Indicators-Quantitative-Research",
+    supporting: ["Methods & source limitations", "https://github.com/arafid/Aggregate-Indicators-Quantitative-Research/blob/main/docs/method-and-limitations.md"]
   }
-  ,math: {
-  "path": "/projects/aggregate-indicators/",
-  "title": "The Lies of Aggregate Indicators",
-  "category": "INDEPENDENT QUANTITATIVE RESEARCH · IB MATHEMATICS AI HL",
-  "intro": "What does an economic headline leave out? An independent mathematics investigation into U.S. household income distributions, model fit, and the limits of summarizing a population with one number.",
-  "tags": [
-    "GeoGebra",
-    "Excel",
-    "Regression",
-    "Probability",
-    "Model evaluation"
-  ],
-  "stats": [
-    [
-      "3",
-      "YEARS EXAMINED"
-    ],
-    [
-      "16",
-      "PAGES IN ORIGINAL PAPER"
-    ],
-    [
-      "1967–2019",
-      "SELECTED-YEAR COVERAGE"
-    ]
-  ],
-  "sections": [
-    [
-      "THE QUESTION",
-      "<p>I examined household income distributions for 1967, 1990, and 2019 to explore what aggregate indicators can obscure. The aim was to connect an economic question with mathematical modeling, while making the assumptions visible.</p>"
-    ],
-    [
-      "BEHIND THE AVERAGE",
-      "<figure class=\"research-figure\"><img src=\"/assets/research/income-brackets.svg\" alt=\"Grouped bars comparing household percentages in seven selected income brackets for 1967, 1990, and 2019.\" width=\"900\" height=\"570\" loading=\"lazy\"><figcaption>New chart transcribed from Appendix A of the original paper. Selected brackets only; upper-income bands are omitted. The dollar basis must be verified before drawing real-income trends across years.</figcaption></figure>"
-    ],
-    [
-      "THE MODELING WORK",
-      "<p>Used histogram-based descriptions, polynomial regression, residual error, and R² to examine fit. Compared an exponential tail with a quadratic lower-range approximation in a piecewise model. GeoGebra supported the regression work; the paper also referenced Excel error calculations.</p>"
-    ],
-    [
-      "WHAT I TOOK FROM IT",
-      "<p>A strong overall fit can still miss the part of a distribution that matters. The piecewise approach offered a more interpretable local description, but its cutoff and normalization remained limitations. The useful habit is to examine errors and assumptions before trusting a tidy curve.</p>"
-    ],
-    [
-      "WHY IT MATTERS NOW",
-      "<p>The same question applies to business analytics: which customers, outcomes, or risks disappear when we report only an average? This early project shows the quantitative curiosity behind my later analytics work.</p>"
-    ]
-  ],
-  "note": "Historical independent IB investigation, presented retrospectively. Grouped household data are not individual observations; unequal bracket widths require care. The original models were exploratory, not validated predictive models. This case study does not claim that GDP alone proves changes in poverty or purchasing power.",
-  "repo": "https://github.com/arafid/Aggregate-Indicators-Quantitative-Research",
-  "supporting": [
-    "Methods & source limitations",
-    "https://github.com/arafid/Aggregate-Indicators-Quantitative-Research/blob/main/docs/method-and-limitations.md"
-  ]
-}
 };
