@@ -114,7 +114,7 @@ document.addEventListener('click', event => {
 window.matchMedia('(min-width: 621px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
 
 let copyTimer;
-document.querySelector('.copy-email').addEventListener('click', async () => {
+document.querySelector('.copy-email')?.addEventListener('click', async () => {
   const feedback = document.querySelector('#copy-feedback');
   clearTimeout(copyTimer);
   try {
@@ -125,3 +125,7 @@ document.querySelector('.copy-email').addEventListener('click', async () => {
   }
   copyTimer = setTimeout(() => { feedback.textContent = ''; }, 3500);
 });
+
+// Keep category links useful on the dedicated projects page.
+const requestedFilter = new URLSearchParams(window.location.search).get("filter");
+if (requestedFilter && document.querySelector("#work-count")) filterProjects(requestedFilter);

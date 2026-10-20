@@ -12,7 +12,7 @@ const modified = '2026-10-20';
 // Use timezone-qualified DateTime values for Google's ProfilePage properties.
 // Keep creation fixed; update modification only when the profile content changes.
 const profileCreatedAt = '2026-10-17T12:07:02Z';
-const profileModifiedAt = '2026-10-20T20:02:34Z';
+const profileModifiedAt = '2026-10-20T20:06:14Z';
 const projectDescriptions = {
   math: 'Afnan Rafid’s independent IB Mathematics AI HL research: household income distributions, regression, model evaluation, and the limits of aggregate indicators.',
   loves: 'Afnan Rafid’s Python customer analytics case study: five datasets, campaign KPIs, customer segmentation, and evidence for behavior-based targeting.',
@@ -25,6 +25,7 @@ const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('"', '
 const json = value => JSON.stringify(value).replaceAll('<', '\\u003c');
 const person = {
   '@type': 'Person', '@id': personId,
+  image: `${origin}/assets/afnan-rafid-headshot.png`,
   name: 'Afnan Rafid', givenName: 'Afnan', familyName: 'Rafid',
   url: `${origin}/`,
   description: 'Management Information Technology graduate student and Graduate Teaching Assistant at the University of Oklahoma, with project work in analytics, C# applications, cyber risk, and business strategy.',
@@ -117,7 +118,10 @@ ${metadata({title:`${project.title} | Afnan Rafid`,description:projectDescriptio
   writeFileSync(path.join(projectDirectory, 'index.html'), html);
 });
 
-const urls = [`${origin}/`, `${origin}/resume/`, ...list.map(project=>origin+project.path)];
+const urls = [`${origin}/`, `${origin}/resume/`, `${origin}/skills/`, `${origin}/projects/`, `${origin}/contact/`, ...list.map(project=>origin+project.path)];
 writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(url=>`  <url><loc>${url}</loc><lastmod>${modified}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
 console.log(`Generated ${list.length} case-study pages, metadata, structured data, sitemap, and crawler rules.`);
+
+// Keep dedicated navigation pages in sync with homepage content and metadata.
+await import('./generate-section-pages.mjs');
