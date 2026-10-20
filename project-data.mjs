@@ -128,10 +128,10 @@ export const projects = {
     ]
   ],
   "note": "Historical independent IB investigation, presented retrospectively. Grouped household data are not individual observations; unequal bracket widths require care. The original models were exploratory, not validated predictive models. This case study does not claim that GDP alone proves changes in poverty or purchasing power.",
-  "repo": "https://github.com/arafid/arafid.github.io/tree/main/research/aggregate-indicators",
+  "repo": "https://github.com/arafid/Aggregate-Indicators-Quantitative-Research",
   "supporting": [
     "Methods & source limitations",
-    "https://github.com/arafid/arafid.github.io/blob/main/research/aggregate-indicators/method-and-limitations.md"
+    "https://github.com/arafid/Aggregate-Indicators-Quantitative-Research/blob/main/docs/method-and-limitations.md"
   ]
 }
 };
