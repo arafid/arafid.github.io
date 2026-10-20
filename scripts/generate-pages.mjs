@@ -8,12 +8,13 @@ const dist = root;
 const origin = 'https://arafid.github.io';
 const personId = `${origin}/#afnan-rafid`;
 const websiteId = `${origin}/#website`;
-const modified = '2026-10-17';
+const modified = '2026-10-20';
 // Use timezone-qualified DateTime values for Google's ProfilePage properties.
 // Keep creation fixed; update modification only when the profile content changes.
 const profileCreatedAt = '2026-10-17T12:07:02Z';
-const profileModifiedAt = profileCreatedAt;
+const profileModifiedAt = '2026-10-20T20:02:34Z';
 const projectDescriptions = {
+  math: 'Afnan Rafid’s independent IB Mathematics AI HL research: household income distributions, regression, model evaluation, and the limits of aggregate indicators.',
   loves: 'Afnan Rafid’s Python customer analytics case study: five datasets, campaign KPIs, customer segmentation, and evidence for behavior-based targeting.',
   amazon: 'Afnan Rafid’s Python NLP project: NLTK VADER, a balanced 300-review sample, complaint themes, and evaluation of sentiment-model limitations.',
   equifax: 'Afnan Rafid’s contribution to a team Equifax cyber risk assessment: four forecast scenarios, business impact, and a 36-month resilience roadmap.',

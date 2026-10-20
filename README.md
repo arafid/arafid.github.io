@@ -33,3 +33,7 @@ Profile facts were checked against Afnan's résumé. Project facts were checked 
 Search metadata includes unique titles and descriptions, canonical URLs, social sharing previews, ProfilePage/Person structured data, project descriptions, and breadcrumbs. See `SEARCH_SETUP.md` for the Google account step. These features do not guarantee indexing or ranking.
 
 Font license and copyright information are retained in `assets/FONT-LICENSE.txt`.
+
+## Independent mathematics research
+
+The sixth portfolio project, [The Lies of Aggregate Indicators](https://arafid.github.io/projects/aggregate-indicators/), includes source notes, a transcribed chart dataset, and retrospective limitations in [research/aggregate-indicators](research/aggregate-indicators/).

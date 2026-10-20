@@ -79,5 +79,59 @@ export const projects = {
     repo: 'https://github.com/arafid/PayPal-Strategic-Analysis',
     supporting: ['Executive case study', 'https://github.com/arafid/PayPal-Strategic-Analysis/blob/main/docs/PayPal_Strategic_Case_Study.md']
   }
+  ,math: {
+  "path": "/projects/aggregate-indicators/",
+  "title": "The Lies of Aggregate Indicators",
+  "category": "INDEPENDENT QUANTITATIVE RESEARCH · IB MATHEMATICS AI HL",
+  "intro": "What does an economic headline leave out? An independent mathematics investigation into U.S. household income distributions, model fit, and the limits of summarizing a population with one number.",
+  "tags": [
+    "GeoGebra",
+    "Excel",
+    "Regression",
+    "Probability",
+    "Model evaluation"
+  ],
+  "stats": [
+    [
+      "3",
+      "YEARS EXAMINED"
+    ],
+    [
+      "16",
+      "PAGES IN ORIGINAL PAPER"
+    ],
+    [
+      "1967–2019",
+      "SELECTED-YEAR COVERAGE"
+    ]
+  ],
+  "sections": [
+    [
+      "THE QUESTION",
+      "<p>I examined household income distributions for 1967, 1990, and 2019 to explore what aggregate indicators can obscure. The aim was to connect an economic question with mathematical modeling, while making the assumptions visible.</p>"
+    ],
+    [
+      "BEHIND THE AVERAGE",
+      "<figure class=\"research-figure\"><img src=\"/assets/research/income-brackets.svg\" alt=\"Grouped bars comparing household percentages in seven selected income brackets for 1967, 1990, and 2019.\" width=\"900\" height=\"570\" loading=\"lazy\"><figcaption>New chart transcribed from Appendix A of the original paper. Selected brackets only; upper-income bands are omitted. The dollar basis must be verified before drawing real-income trends across years.</figcaption></figure>"
+    ],
+    [
+      "THE MODELING WORK",
+      "<p>Used histogram-based descriptions, polynomial regression, residual error, and R² to examine fit. Compared an exponential tail with a quadratic lower-range approximation in a piecewise model. GeoGebra supported the regression work; the paper also referenced Excel error calculations.</p>"
+    ],
+    [
+      "WHAT I TOOK FROM IT",
+      "<p>A strong overall fit can still miss the part of a distribution that matters. The piecewise approach offered a more interpretable local description, but its cutoff and normalization remained limitations. The useful habit is to examine errors and assumptions before trusting a tidy curve.</p>"
+    ],
+    [
+      "WHY IT MATTERS NOW",
+      "<p>The same question applies to business analytics: which customers, outcomes, or risks disappear when we report only an average? This early project shows the quantitative curiosity behind my later analytics work.</p>"
+    ]
+  ],
+  "note": "Historical independent IB investigation, presented retrospectively. Grouped household data are not individual observations; unequal bracket widths require care. The original models were exploratory, not validated predictive models. This case study does not claim that GDP alone proves changes in poverty or purchasing power.",
+  "repo": "https://github.com/arafid/arafid.github.io/tree/main/research/aggregate-indicators",
+  "supporting": [
+    "Methods & source limitations",
+    "https://github.com/arafid/arafid.github.io/blob/main/research/aggregate-indicators/method-and-limitations.md"
+  ]
+}
 };
-
