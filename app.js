@@ -22,9 +22,11 @@ if (lovesLink) {
 const lovesBenchKicker = document.querySelector('#panel-data .bench-kicker');
 if (lovesBenchKicker) lovesBenchKicker.textContent = 'LOVE’S / PYTHON ANALYTICS';
 
+const isHome = window.location.pathname === '/' || window.location.pathname === '/index.html';
+const isProjectsIndex = window.location.pathname === '/projects/' || window.location.pathname === '/projects/index.html';
+
 // Keep the home page tightly curated at six projects by featuring the stronger
 // individual economics field study in the slot used by the PayPal team capstone.
-const isHome = window.location.pathname === '/' || window.location.pathname === '/index.html';
 if (isHome) {
   const paypalLink = document.querySelector('[data-project="paypal"]');
   const economics = projects.economics;
@@ -35,6 +37,18 @@ if (isHome) {
     paypalLink.href = economics.path;
     paypalLink.setAttribute('aria-label', 'Read the Dhaka Rickshaw Economic Impact Study');
     paypalLink.innerHTML = `<div class="project-art art-math"><div class="art-topline"><span>05 / PRIMARY RESEARCH</span><span>↗</span></div><div class="math-symbol" aria-hidden="true">90</div><div class="small-art-title">90 interviews.<br>One economic shock.</div><span class="small-art-note">FIELD RESEARCH · REGRESSION · DHAKA</span></div><div class="project-info"><div><p class="project-type">PRIMARY RESEARCH / ECONOMICS</p><h3>Dhaka Rickshaw Economic Impact Study</h3><p>Using original interview data to examine how COVID-19 changed income, expenses, and livelihoods.</p><div class="tags"><span>Survey research</span><span>Regression</span><span>Data analysis</span></div></div><span class="project-arrow" aria-hidden="true">↗</span></div>`;
+  }
+}
+
+// The dedicated projects page keeps the full portfolio, including the PayPal capstone.
+if (isProjectsIndex && !document.querySelector('[data-project="economics"]')) {
+  const grid = document.querySelector('.project-grid');
+  if (grid) {
+    grid.insertAdjacentHTML('beforeend', `<article class="project-card project-small" data-category="analytics"><a class="project-open" href="/projects/dhaka-rickshaw-economic-impact/" data-project="economics" aria-label="Read the Dhaka Rickshaw Economic Impact Study"><div class="project-art art-math"><div class="art-topline"><span>07 / PRIMARY RESEARCH</span><span>↗</span></div><div class="math-symbol" aria-hidden="true">90</div><div class="small-art-title">90 interviews.<br>One economic shock.</div><span class="small-art-note">FIELD RESEARCH · REGRESSION · DHAKA</span></div><div class="project-info"><div><p class="project-type">PRIMARY RESEARCH / ECONOMICS</p><h3>Dhaka Rickshaw Economic Impact Study</h3><p>Using original interview data to examine how COVID-19 changed income, expenses, and livelihoods.</p><div class="tags"><span>Survey research</span><span>Regression</span><span>Data analysis</span></div></div><span class="project-arrow" aria-hidden="true">↗</span></div></a></article>`);
+    const allCount = document.querySelector('.filter[data-filter="all"] span');
+    if (allCount) allCount.textContent = '7';
+    const count = document.querySelector('#work-count');
+    if (count) count.textContent = '07 PROJECTS / OPEN TO EXPLORE';
   }
 }
 
@@ -75,7 +89,7 @@ tabs.forEach((tab, index) => {
     if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
     if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
     if (event.key === 'Home') next = 0;
-    if (event.key === 'End') next = tabs.length - 1;
+    if (event.key === 'End') next = (tabs.length - 1);
     if (next === undefined) return;
     event.preventDefault();
     activateTab(tabs[next]);
