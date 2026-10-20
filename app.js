@@ -1,5 +1,27 @@
 import { projects } from './project-data.mjs';
 
+// Keep the Love's project visibly technical across project cards and modal details.
+if (projects.loves) {
+  projects.loves.title = 'Love’s Customer Segmentation Analytics';
+  projects.loves.category = 'PYTHON / CUSTOMER ANALYTICS / ACADEMIC CASE COMPETITION';
+  projects.loves.intro = 'Built a Python-based customer analytics workflow connecting customer, campaign, product-sales, store, and historical data to compare engagement and promotional outcomes.';
+  projects.loves.sections[0][1] = '<p>Used Python and pandas to integrate five source tables using driver and store keys, checked key coverage and unmatched records, and engineered metrics for campaign participation, achievement, fuel activity, merchandise sales, and store visits.</p>';
+}
+
+const lovesLink = document.querySelector('[data-project="loves"]');
+if (lovesLink) {
+  lovesLink.setAttribute('aria-label', 'Read the Love’s Customer Segmentation Analytics case study');
+  const lovesCard = lovesLink.closest('.project-card');
+  const type = lovesCard?.querySelector('.project-type');
+  const title = lovesCard?.querySelector('h3');
+  const summary = lovesCard?.querySelector('.project-info p:not(.project-type)');
+  if (type) type.textContent = 'PYTHON / CUSTOMER ANALYTICS';
+  if (title) title.textContent = 'Love’s Customer Segmentation Analytics';
+  if (summary) summary.textContent = 'Using Python to connect campaign and sales data and identify where customer engagement is strongest.';
+}
+const lovesBenchKicker = document.querySelector('#panel-data .bench-kicker');
+if (lovesBenchKicker) lovesBenchKicker.textContent = 'LOVE’S / PYTHON ANALYTICS';
+
 const filters = [...document.querySelectorAll('.filter')];
 const cards = [...document.querySelectorAll('.project-card')];
 function filterProjects(category) {
