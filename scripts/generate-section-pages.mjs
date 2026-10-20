@@ -1,11 +1,11 @@
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 const home=readFileSync(new URL('../index.html',import.meta.url),'utf8');
 const root=new URL('../',import.meta.url);
-const between=(start,end)=>home.slice(home.indexOf(start),home.indexOf(end));
+const section=id=>{const start=home.indexOf(`    <section id="${id}"`);if(start<0)throw new Error(`Missing section: ${id}`);const end=home.indexOf('</section>',start);return home.slice(start,end+'</section>'.length);};
 const sections={
- projects:between('    <section id="work"','    <section id="about"'),
- skills:between('    <section id="skills"','    <section id="experience"'),
- contact:between('    <section id="contact"','  </main>')
+ projects:section('work'),
+ skills:section('skills'),
+ contact:section('contact')
 };
 const details={
  projects:['Projects','Explore the work.','Analytics, application development, quantitative research, and business strategy—with the methods, outcomes, and limitations behind each project.'],
