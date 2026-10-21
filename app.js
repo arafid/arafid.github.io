@@ -52,6 +52,19 @@ if (isProjectsIndex && !document.querySelector('[data-project="economics"]')) {
   }
 }
 
+// Keep project-management work as supporting portfolio evidence rather than a homepage flagship.
+// It links directly to the case study instead of opening the project modal.
+if (isProjectsIndex && !document.querySelector('a[href="/projects/taco-truck-project-management/"]')) {
+  const grid = document.querySelector('.project-grid');
+  if (grid) {
+    grid.insertAdjacentHTML('beforeend', `<article class="project-card project-small" data-category="strategy"><a class="project-open" href="/projects/taco-truck-project-management/" aria-label="Read the mobile app project planning case study"><div class="project-art art-paypal"><div class="art-topline"><span>08 / PROJECT MANAGEMENT</span><span>↗</span></div><div class="paypal-art-icon" aria-hidden="true"><span>→</span><i></i><i></i></div><div class="small-art-title">Plan the work.<br>Manage the change.</div><span class="small-art-note">SCOPE · RISK · QUALITY · STAKEHOLDERS</span></div><div class="project-info"><div><p class="project-type">PROJECT MANAGEMENT / INFORMATION SYSTEMS</p><h3>Mobile App Project Planning</h3><p>Planning a mobile application from requirements and critical path through risk, communication, change control, and closeout.</p><div class="tags"><span>Critical path</span><span>Risk management</span><span>Stakeholders</span></div></div><span class="project-arrow" aria-hidden="true">↗</span></div></a></article>`);
+    const allCount = document.querySelector('.filter[data-filter="all"] span');
+    if (allCount) allCount.textContent = '8';
+    const count = document.querySelector('#work-count');
+    if (count) count.textContent = '08 PROJECTS / OPEN TO EXPLORE';
+  }
+}
+
 const filters = [...document.querySelectorAll('.filter')];
 const cards = [...document.querySelectorAll('.project-card')];
 function filterProjects(category) {
