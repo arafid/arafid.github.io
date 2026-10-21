@@ -15,7 +15,7 @@ const supportingProjectUrls = [`${origin}/projects/taco-truck-project-management
 // Use timezone-qualified DateTime values for Google's ProfilePage properties.
 // Keep creation fixed; update modification only when the profile content changes.
 const profileCreatedAt = '2026-10-17T12:07:02Z';
-const profileModifiedAt = '2026-10-20T20:11:45Z';
+const profileModifiedAt = '2026-10-21T17:28:22Z';
 const projectDescriptions = {
   math: 'Afnan Rafid’s independent IB Mathematics AI HL research: household income distributions, regression, model evaluation, and the limits of aggregate indicators.',
   loves: 'Afnan Rafid’s Python customer analytics case study: five datasets, campaign KPIs, customer segmentation, and evidence for behavior-based targeting.',
