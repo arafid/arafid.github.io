@@ -8,7 +8,10 @@ const dist = root;
 const origin = 'https://arafid.github.io';
 const personId = `${origin}/#afnan-rafid`;
 const websiteId = `${origin}/#website`;
-const modified = '2026-10-20';
+const modified = '2026-10-21';
+// Supporting case studies can live outside project-data when they should not appear
+// in the homepage modal/featured-project system, but they still belong in discovery.
+const supportingProjectUrls = [`${origin}/projects/taco-truck-project-management/`];
 // Use timezone-qualified DateTime values for Google's ProfilePage properties.
 // Keep creation fixed; update modification only when the profile content changes.
 const profileCreatedAt = '2026-10-17T12:07:02Z';
@@ -19,7 +22,8 @@ const projectDescriptions = {
   amazon: 'Afnan Rafid’s Python NLP project: NLTK VADER, a balanced 300-review sample, complaint themes, and evaluation of sentiment-model limitations.',
   equifax: 'Afnan Rafid’s contribution to a team Equifax cyber risk assessment: four forecast scenarios, business impact, and a 36-month resilience roadmap.',
   weather: 'Explore Afnan Rafid’s C#/.NET Weather API project using async HTTP requests, Open-Meteo, JSON deserialization, and unit conversion.',
-  paypal: 'Afnan Rafid’s PayPal team capstone: competitive strategy, SWOT, Five Forces, VRIN, and recommendations for innovation and digital payments.'
+  paypal: 'Afnan Rafid’s PayPal team capstone: competitive strategy, SWOT, Five Forces, VRIN, and recommendations for innovation and digital payments.',
+  economics: 'Afnan Rafid’s economics field study: 90 interviews with Dhaka rickshaw pullers, regression analysis, and a retrospective review of research limitations.'
 };
 const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 const json = value => JSON.stringify(value).replaceAll('<', '\\u003c');
@@ -118,10 +122,10 @@ ${metadata({title:`${project.title} | Afnan Rafid`,description:projectDescriptio
   writeFileSync(path.join(projectDirectory, 'index.html'), html);
 });
 
-const urls = [`${origin}/`, `${origin}/resume/`, `${origin}/skills/`, `${origin}/projects/`, `${origin}/contact/`, ...list.map(project=>origin+project.path)];
+const urls = [`${origin}/`, `${origin}/resume/`, `${origin}/skills/`, `${origin}/projects/`, `${origin}/contact/`, ...list.map(project=>origin+project.path), ...supportingProjectUrls];
 writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(url=>`  <url><loc>${url}</loc><lastmod>${modified}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
-console.log(`Generated ${list.length} case-study pages, metadata, structured data, sitemap, and crawler rules.`);
+console.log(`Generated ${list.length} primary case-study pages plus supporting cases, metadata, structured data, sitemap, and crawler rules.`);
 
 // Keep dedicated navigation pages in sync with homepage content and metadata.
 await import('./generate-section-pages.mjs');
