@@ -8,14 +8,14 @@ const dist = root;
 const origin = 'https://arafid.github.io';
 const personId = `${origin}/#afnan-rafid`;
 const websiteId = `${origin}/#website`;
-const modified = '2026-10-21';
+const modified = '2026-10-27';
 // Supporting case studies can live outside project-data when they should not appear
 // in the homepage modal/featured-project system, but they still belong in discovery.
 const supportingProjectUrls = [`${origin}/projects/taco-truck-project-management/`];
 // Use timezone-qualified DateTime values for Google's ProfilePage properties.
 // Keep creation fixed; update modification only when the profile content changes.
 const profileCreatedAt = '2026-10-17T12:07:02Z';
-const profileModifiedAt = '2026-10-21T17:28:22Z';
+const profileModifiedAt = '2026-10-27T04:41:00Z';
 const projectDescriptions = {
   math: 'Afnan Rafid’s independent IB Mathematics AI HL research: household income distributions, regression, model evaluation, and the limits of aggregate indicators.',
   loves: 'Afnan Rafid’s Python customer analytics case study: five datasets, campaign KPIs, customer segmentation, and evidence for behavior-based targeting.',
@@ -99,24 +99,24 @@ list.forEach((project, index) => {
       url, contributor:{'@id':personId}, genre:'Academic portfolio project', keywords:project.tags.join(', '), sameAs:project.repo},
     {'@type':'BreadcrumbList', '@id':`${url}#breadcrumb`, itemListElement:[
       {'@type':'ListItem', position:1, name:'Afnan Rafid', item:`${origin}/`},
-      {'@type':'ListItem', position:2, name:'Selected work', item:`${origin}/#work`},
+      {'@type':'ListItem', position:2, name:'Projects', item:`${origin}/projects/`},
       {'@type':'ListItem', position:3, name:project.title, item:url}
     ]}
   ]};
   const html = `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f1e9">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090a0c">
 ${metadata({title:`${project.title} | Afnan Rafid`,description:projectDescriptions[projectKey],url,schema})}
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"></head>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/secondary-dark.css"></head>
 <body class="case-body"><a class="skip-link" href="#case-main">Skip to case study</a>
-<header class="case-header section-wrap"><a class="wordmark" href="/">afnan rafid<span class="brand-dot">.</span></a><a class="case-back" href="/#work">← All projects</a><a class="case-resume" href="/assets/Afnan_Rafid_Resume.pdf" download>Résumé ↓</a></header>
-<main id="case-main" class="case-page section-wrap"><nav class="case-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/#work">Work</a><span>/</span><span aria-current="page">${escape(project.title)}</span></nav>
+<header class="case-header section-wrap"><a class="wordmark" href="/">afnan rafid<span class="brand-dot">.</span></a><a class="case-back" href="/projects/">← All projects</a><a class="case-resume" href="/assets/Afnan_Rafid_Resume.pdf" download>Résumé ↓</a></header>
+<main id="case-main" class="case-page section-wrap"><nav class="case-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/projects/">Projects</a><span>/</span><span aria-current="page">${escape(project.title)}</span></nav>
 <article><p class="eyebrow">${escape(project.category)}</p><h1>${escape(project.title)}</h1><p class="case-intro">${escape(project.intro)}</p>
 <div class="case-stats">${project.stats.map(([value,label])=>`<div><strong>${escape(value)}</strong><span>${escape(label)}</span></div>`).join('')}</div>
 <div class="case-layout"><div class="case-content">${project.sections.map(([heading,content])=>`<section><h2>${escape(heading)}</h2>${content}</section>`).join('')}
 <section class="case-scope"><h2>Scope & limitations</h2><p>${escape(project.note)}</p></section></div>
 <aside class="case-sidebar" aria-label="Project resources"><h2>Tools & methods</h2><div class="tags">${project.tags.map(tag=>`<span>${escape(tag)}</span>`).join('')}</div><h2>Explore the work</h2><a class="button button-dark" href="${project.repo}" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a>${project.supporting?`<a class="text-link" href="${project.supporting[1]}" target="_blank" rel="noopener noreferrer">${escape(project.supporting[0])} ↗</a>`:''}<div class="case-contact-note"><h2>Let’s connect</h2><p>Interested in my approach to analytics, applications, or technology risk?</p><a href="mailto:arafid@ou.edu">arafid@ou.edu ↗</a></div></aside></div></article>
-<nav class="case-next" aria-label="More project work"><a href="/#work">← Back to selected work</a><a href="${next.path}"><span>NEXT PROJECT</span>${escape(next.title)} ↗</a></nav></main>
-<footer class="site-footer section-wrap"><a class="wordmark" href="/">afnan rafid<span class="brand-dot">.</span></a><p>Thoughtful work. A little personality.</p><a class="back-top" href="/#contact">GET IN TOUCH ↗</a><span>© 2026 Afnan Rafid</span></footer></body></html>`;
+<nav class="case-next" aria-label="More project work"><a href="/projects/">← Back to all projects</a><a href="${next.path}"><span>NEXT PROJECT</span>${escape(next.title)} ↗</a></nav></main>
+<footer class="site-footer section-wrap"><a class="wordmark" href="/">afnan rafid<span class="brand-dot">.</span></a><p>Thoughtful work. A little personality.</p><a class="back-top" href="/contact/">GET IN TOUCH ↗</a><span>© 2026 Afnan Rafid</span></footer></body></html>`;
   const projectDirectory = path.join(dist, project.path.slice(1));
   mkdirSync(projectDirectory, {recursive:true});
   writeFileSync(path.join(projectDirectory, 'index.html'), html);
@@ -127,5 +127,3 @@ writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF
 writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
 console.log(`Generated ${list.length} primary case-study pages plus supporting cases, metadata, structured data, sitemap, and crawler rules.`);
 
-// Keep dedicated navigation pages in sync with homepage content and metadata.
-await import('./generate-section-pages.mjs');
