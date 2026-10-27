@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-for (const slug of ['projects', 'skills', 'contact']) {
+for (const slug of ['projects']) {
   const file = path.join(root, slug, 'index.html');
   let html = readFileSync(file, 'utf8');
   html = html
@@ -21,4 +21,4 @@ for (const slug of ['projects', 'skills', 'contact']) {
   html = html.replace(/<a class="header-contact" href="\/contact\/"(?: aria-current="page")?>/, '<a class="header-contact" href="/#contact">');
   writeFileSync(file, html);
 }
-console.log('Normalized dedicated Projects, Skills, and Contact pages for the unified dark portfolio theme.');
+console.log('Normalized the dedicated Projects page; Skills and Contact live on the main portfolio.');
