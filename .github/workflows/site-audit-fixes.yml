@@ -1,0 +1,84 @@
+name: Apply portfolio audit fixes
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply reviewed fixes
+        shell: python
+        run: |
+          from pathlib import Path
+
+          def replace(path, old, new):
+              p = Path(path)
+              text = p.read_text()
+              if old in text:
+                  p.write_text(text.replace(old, new))
+                  print(f"updated {path}")
+              else:
+                  print(f"pattern already absent in {path}")
+
+          # Homepage: remove internal design commentary and restore a real contact anchor.
+          replace(
+              'index.html',
+              '<div class="human-note"><b>✦</b><p>The headshot is here intentionally: enough to make the portfolio human and memorable, without competing with the work at the top of the page.</p></div>',
+              ''
+          )
+          replace('index.html', '<section class="contact-section">', '<section id="contact" class="contact-section">')
+
+          # Mobile: tighten the oversized gap between About and Experience.
+          css = Path('home-cinematic.css')
+          text = css.read_text()
+          rule = '@media(max-width:760px){#about{padding-bottom:44px}#experience{padding-top:44px}}'
+          if rule not in text:
+              css.write_text(text + '\n' + rule + '\n')
+
+          # C# case study: remove stale reference to the old homepage workbench.
+          replace(
+              'projects/csharp-weather-api/index.html',
+              'This is a .NET console application originally developed for a programming course. The portfolio’s workbench shows a conceptual code excerpt; it does not run the weather application in the browser.',
+              'This is a .NET console application originally developed for a programming course. The portfolio visual is illustrative; the actual application runs as a console program and is documented in the repository.'
+          )
+
+          # Case-study navigation: “All projects” should actually go to the full library,
+          # and contact links should point to the dedicated contact page.
+          cases = [
+              'projects/loves-customer-segmentation/index.html',
+              'projects/amazon-review-analytics/index.html',
+              'projects/equifax-cyber-risk-assessment/index.html',
+              'projects/csharp-weather-api/index.html',
+              'projects/paypal-strategic-analysis/index.html',
+              'projects/aggregate-indicators/index.html',
+          ]
+          for path in cases:
+              replace(path, '<a class="case-back" href="/#work">← All projects</a>', '<a class="case-back" href="/projects/">← All projects</a>')
+              replace(path, '<a class="back-top" href="/#contact">GET IN TOUCH ↗</a>', '<a class="back-top" href="/contact/">GET IN TOUCH ↗</a>')
+
+          # Secondary-page footers were labeled “Back to top” but linked to the homepage.
+          for path in ['projects/index.html', 'skills/index.html', 'contact/index.html']:
+              replace(path, '<a href="/" class="back-top">BACK TO TOP ↑</a>', '<a href="#main" class="back-top">BACK TO TOP ↑</a>')
+
+          # Keep sitemap modification dates aligned with the current site refresh.
+          sitemap = Path('sitemap.xml')
+          sitemap.write_text(sitemap.read_text().replace('<lastmod>2026-10-21</lastmod>', '<lastmod>2026-10-26</lastmod>'))
+      - name: Commit fixes and remove one-time workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm .github/workflows/site-audit-fixes.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Fix portfolio audit issues"
+          git push
