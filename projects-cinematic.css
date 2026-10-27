@@ -1,0 +1,93 @@
+/* Full project library — visually aligned with the cinematic homepage. */
+.projects-library-page{--lib-bg:#090a0c;--lib-soft:#101217;--lib-panel:#11141a;--lib-panel-2:#151820;--lib-text:#f5f1e9;--lib-muted:#a7abb4;--lib-line:#2a2f39;--lib-accent:#ff7b46;--lib-wrap:min(1180px,calc(100% - 40px));background:var(--lib-bg)}
+.projects-library-page::before{background:radial-gradient(circle at 75% 5%,rgba(255,123,70,.13),transparent 33%),radial-gradient(circle at 5% 55%,rgba(80,114,255,.08),transparent 28%)}
+
+/* Header: match the main portfolio's restrained sticky bar. */
+.projects-library-page .site-header{height:76px;max-width:none;padding:0;background:rgba(9,10,12,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
+.projects-library-page .site-header>.wordmark{margin-left:max(20px,calc((100vw - 1180px)/2));font-size:20px;font-weight:700;letter-spacing:-.04em;text-transform:none}
+.projects-library-page .site-header>.wordmark .brand-dot{font-size:inherit;color:var(--lib-accent)}
+.projects-library-page .site-header nav:not(.mobile-nav){margin-left:auto;gap:28px}
+.projects-library-page .site-header nav:not(.mobile-nav) a{font-size:13px;color:#d7d9df;text-transform:none;letter-spacing:0}
+.projects-library-page .site-header nav:not(.mobile-nav) a span{display:none}
+.projects-library-page .site-header .header-contact{margin-right:max(20px,calc((100vw - 1180px)/2));margin-left:22px;border:1px solid rgba(255,255,255,.18);padding:10px 15px;border-radius:999px;background:rgba(255,255,255,.04);font-size:13px}
+.projects-library-page .site-header .header-contact:hover{background:rgba(255,255,255,.08);color:#fff;border-color:#575d69}
+.projects-library-page .menu-toggle{margin-right:20px}
+.projects-library-page .mobile-nav{left:0;right:0;padding-left:20px;padding-right:20px}
+
+/* Intro: same scale, rhythm and orange accent as the homepage. */
+.projects-library-page .route-main{min-height:70vh}
+.projects-library-page .route-intro{max-width:none;padding:76px max(20px,calc((100vw - 1180px)/2)) 64px;border-bottom:1px solid #20242c;background:transparent}
+.projects-library-page .route-intro::after{width:520px;height:520px;right:-170px;top:-250px;background:radial-gradient(circle,rgba(255,123,70,.19),transparent 64%)}
+.projects-library-page .route-intro>.eyebrow{font-family:'Courier New',monospace;color:#c6c9d0;font-size:11px;letter-spacing:.12em;margin-bottom:16px}
+.projects-library-page .route-intro h1{font-size:clamp(52px,7vw,94px);line-height:.93;letter-spacing:-.065em;max-width:900px}
+.projects-library-page .route-intro>p:not(.eyebrow){max-width:680px;color:var(--lib-muted);font-size:17px;line-height:1.7;margin-top:24px}
+.projects-library-page .route-links{margin-top:28px}
+.projects-library-page .route-links a{border-radius:10px;padding:11px 15px;border:1px solid var(--lib-line);background:rgba(255,255,255,.035);font-size:12px}
+.projects-library-page .route-links a:hover{border-color:#575d69;background:rgba(255,255,255,.065)}
+
+/* Library shell: same width and section hierarchy as Selected Work. */
+.projects-library-page .work-section{max-width:none;padding:82px max(20px,calc((100vw - 1180px)/2)) 96px}
+.projects-library-page .section-heading{display:flex;justify-content:space-between;align-items:end;gap:28px;border-bottom:0;padding-bottom:0;margin-bottom:30px}
+.projects-library-page .section-heading h2{font-size:clamp(38px,5vw,64px);line-height:1;letter-spacing:-.055em}
+.projects-library-page .section-heading h2 em{color:var(--lib-accent)}
+.projects-library-page .section-intro{max-width:420px;color:#9297a1;font-size:13px;line-height:1.65}
+.projects-library-page .section-index{font-size:11px;color:#c6c9d0}
+
+.projects-library-page .work-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;border-top:1px solid #242932;border-bottom:1px solid #242932;padding:16px 0 18px;margin-bottom:24px}
+.projects-library-page .filters{display:flex;gap:8px;flex-wrap:wrap}
+.projects-library-page .filter{min-height:40px;border:1px solid #303641;border-radius:999px;padding:0 13px;background:#0d1014;color:#b9bdc5;font-size:11px;transition:.2s ease}
+.projects-library-page .filter:hover{border-color:#555c69;color:#fff;transform:translateY(-1px)}
+.projects-library-page .filter.active{background:var(--lib-text);border-color:var(--lib-text);color:#090a0c;font-weight:700}
+.projects-library-page .filter.active span{color:#555b64}
+.projects-library-page .work-count{font:9px 'Courier New',monospace;color:#7f8590;letter-spacing:.08em}
+
+/* Cards: make the full library feel like an expanded version of the homepage rail. */
+.projects-library-page .project-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;row-gap:20px}
+.projects-library-page .project-card{margin:0;min-width:0;border:1px solid #2a2f38;border-radius:18px;background:#11141a;overflow:hidden;transition:.22s ease}
+.projects-library-page .project-card.project-large{grid-column:span 6}
+.projects-library-page .project-card.project-small{grid-column:span 4}
+.projects-library-page .project-card:hover{transform:translateY(-4px);border-color:#4a515e}
+.projects-library-page .project-open{height:100%;display:flex;flex-direction:column}
+.projects-library-page .project-art{height:230px;border:0!important;border-bottom:1px solid #252a33!important;border-radius:0!important;box-shadow:none!important;background:linear-gradient(145deg,#181c24,#0d0f13)!important;transition:.22s ease;position:relative;overflow:hidden}
+.projects-library-page .project-art::after{content:'';position:absolute;width:210px;height:210px;border-radius:50%;right:-85px;top:-95px;background:radial-gradient(circle,rgba(255,123,70,.22),transparent 65%);pointer-events:none}
+.projects-library-page .project-open:hover .project-art{transform:none!important;box-shadow:none!important}
+.projects-library-page .art-topline,.projects-library-page .art-bottomline{position:relative;z-index:2;color:#9ca1ab}
+.projects-library-page .project-info{padding:20px 21px 22px;display:flex;justify-content:space-between;gap:16px;flex:1}
+.projects-library-page .project-info h3{font-size:25px;line-height:1.08;letter-spacing:-.04em;color:#f3f0e9;margin-top:8px}
+.projects-library-page .project-info p{font-size:12px;color:#9297a2;line-height:1.6;margin-top:9px;max-width:94%}
+.projects-library-page .project-type{font:9px 'Courier New',monospace;text-transform:uppercase;letter-spacing:.1em;color:#898f99}
+.projects-library-page .tags{margin-top:15px;gap:7px}
+.projects-library-page .tags span{padding:7px 9px;border:1px solid #303641;border-radius:999px;background:#0d1014;color:#c5c8cf;font-size:10px}
+.projects-library-page .project-arrow{align-self:flex-end;color:#969ca6;font-size:20px}
+
+/* Keep the distinct project graphics, but mute them into the same visual world. */
+.projects-library-page .dataset-stack span,.projects-library-page .insight-note,.projects-library-page .theme-chips span{border-color:#353b46!important;background:rgba(13,16,20,.76)!important;color:#d6d9df!important}
+.projects-library-page .insight-note strong,.projects-library-page .review-text em,.projects-library-page .small-art-title{color:#f5f1e9!important}
+.projects-library-page .insight-number,.projects-library-page .review-stars,.projects-library-page .math-symbol{color:var(--lib-accent)!important}
+.projects-library-page .small-art-note,.projects-library-page .sample-note{color:#838994!important}
+
+.projects-library-page .work-footer{margin-top:28px;padding-top:20px;border-top:1px solid #292e37;color:#9297a1}
+.projects-library-page .work-footer .text-link{border:1px solid #4a505b;border-radius:10px;padding:10px 14px;color:#d8dbe1}
+.projects-library-page .work-footer .text-link:hover{background:rgba(255,255,255,.05);color:#fff}
+.projects-library-page .site-footer{max-width:none;padding-left:max(20px,calc((100vw - 1180px)/2));padding-right:max(20px,calc((100vw - 1180px)/2))}
+
+@media(max-width:900px){
+  .projects-library-page .site-header>.wordmark{margin-left:20px}
+  .projects-library-page .project-card.project-large,.projects-library-page .project-card.project-small{grid-column:span 6}
+  .projects-library-page .section-heading{align-items:flex-start}
+}
+@media(max-width:620px){
+  .projects-library-page .site-header{height:68px}
+  .projects-library-page .route-intro{padding-top:58px;padding-bottom:50px}
+  .projects-library-page .route-intro h1{font-size:clamp(48px,15vw,70px)}
+  .projects-library-page .route-intro>p:not(.eyebrow){font-size:14px}
+  .projects-library-page .work-section{padding-top:58px;padding-bottom:72px}
+  .projects-library-page .section-heading{flex-direction:column;gap:18px}
+  .projects-library-page .project-grid{grid-template-columns:1fr;gap:16px}
+  .projects-library-page .project-card.project-large,.projects-library-page .project-card.project-small{grid-column:1}
+  .projects-library-page .project-art{height:250px}
+  .projects-library-page .work-toolbar{align-items:flex-start;flex-direction:column}
+  .projects-library-page .work-count{white-space:normal}
+  .projects-library-page .project-info h3{font-size:24px}
+  .projects-library-page .site-footer{padding-left:20px;padding-right:20px}
+}
