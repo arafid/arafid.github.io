@@ -1,0 +1,31 @@
+name: Refresh resume PDF
+
+on:
+  push:
+    paths:
+      - '.resume-update/READY'
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Decode and verify resume
+        shell: bash
+        run: |
+          cat .resume-update/chunk*.txt | base64 --decode > assets/Afnan_Rafid_Resume.pdf
+          echo "820646a32f660473b8c0694d82da18a344985e365e9a800071e49643c1e9d5b1  assets/Afnan_Rafid_Resume.pdf" | sha256sum --check --strict
+      - name: Commit refreshed asset and remove temporary files
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/Afnan_Rafid_Resume.pdf
+          git rm -r .resume-update .github/workflows/refresh-resume.yml
+          git commit -m "Replace downloadable resume with October 2026 version"
+          git push
