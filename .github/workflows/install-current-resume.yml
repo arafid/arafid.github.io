@@ -28,8 +28,14 @@ jobs:
             .resume-upload/chunk5a.txt \
             .resume-upload/chunk5b.txt \
             .resume-upload/chunk6a.txt \
-            .resume-upload/chunk6b.txt \
-            .resume-upload/chunk6c.txt \
+            .resume-upload/chunk6b0.txt \
+            .resume-upload/chunk6b1.txt \
+            .resume-upload/chunk6b2.txt \
+            .resume-upload/chunk6b3.txt \
+            .resume-upload/chunk6c0.txt \
+            .resume-upload/chunk6c1.txt \
+            .resume-upload/chunk6c2.txt \
+            .resume-upload/chunk6c3.txt \
             .resume-upload/chunk6d.txt \
             .resume-upload/chunk6e.txt \
             .resume-upload/chunk6f.txt > /tmp/resume.b64
