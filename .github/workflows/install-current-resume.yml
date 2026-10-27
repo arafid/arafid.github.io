@@ -1,0 +1,43 @@
+name: Install current resume PDF
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Rebuild and verify exact resume PDF
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat \
+            .resume-upload/chunk0.txt \
+            .resume-upload/chunk1.txt \
+            .resume-upload/chunk2.txt \
+            .resume-upload/chunk3.txt \
+            .resume-upload/chunk4.txt \
+            .resume-upload/chunk5a.txt \
+            .resume-upload/chunk5b.txt \
+            .resume-upload/chunk6.txt > /tmp/resume.b64
+          test "$(wc -c < /tmp/resume.b64 | tr -d ' ')" = "26168"
+          base64 --decode /tmp/resume.b64 > assets/Afnan_Rafid_Resume.pdf
+          echo "820646a32f660473b8c0694d82da18a344985e365e9a800071e49643c1e9d5b1  assets/Afnan_Rafid_Resume.pdf" | sha256sum -c -
+      - name: Commit exact PDF and clean staging
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .resume-upload .github/workflows/install-current-resume.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Upload current general resume PDF"
+          git push

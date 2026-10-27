@@ -1,0 +1,4 @@
+# resume upload staging manifest
+expected_sha256=820646a32f660473b8c0694d82da18a344985e365e9a800071e49643c1e9d5b1
+expected_base64_chars=26168
+source=Afnan Rafid Resume (10-26-2026).pdf
