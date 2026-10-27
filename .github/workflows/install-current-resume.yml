@@ -19,15 +19,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          sha256sum \
-            .resume-upload/chunk0.txt \
-            .resume-upload/chunk1.txt \
-            .resume-upload/chunk2.txt \
-            .resume-upload/chunk3.txt \
-            .resume-upload/chunk4.txt \
-            .resume-upload/chunk5a.txt \
-            .resume-upload/chunk5b.txt \
-            .resume-upload/chunk6.txt
           cat \
             .resume-upload/chunk0.txt \
             .resume-upload/chunk1.txt \
@@ -36,7 +27,12 @@ jobs:
             .resume-upload/chunk4.txt \
             .resume-upload/chunk5a.txt \
             .resume-upload/chunk5b.txt \
-            .resume-upload/chunk6.txt > /tmp/resume.b64
+            .resume-upload/chunk6a.txt \
+            .resume-upload/chunk6b.txt \
+            .resume-upload/chunk6c.txt \
+            .resume-upload/chunk6d.txt \
+            .resume-upload/chunk6e.txt \
+            .resume-upload/chunk6f.txt > /tmp/resume.b64
           test "$(wc -c < /tmp/resume.b64 | tr -d ' ')" = "26168"
           base64 --decode /tmp/resume.b64 > assets/Afnan_Rafid_Resume.pdf
           echo "820646a32f660473b8c0694d82da18a344985e365e9a800071e49643c1e9d5b1  assets/Afnan_Rafid_Resume.pdf" | sha256sum -c -
